@@ -1,13 +1,18 @@
 package DatabaseProvider;
 
+import Classes.*;
+
+import java.awt.print.Book;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.*;
 
 
-    public class SelectDB {
+public class SelectDB {
+
 
         private Connection connect() {
             // SQLite connection string
