@@ -46,7 +46,10 @@ public final class DatabaseProvider {
         return conn;
     }
 
-    public static void getBookByISBN(String ISBN){}
+    public static List<Book> getBookByISBN(String ISBN){
+        List<Book> books = new LinkedList<>();
+        return books;
+    }
 
     public static void addLibraryMember(LibraryMember member){
 
