@@ -1,22 +1,24 @@
 package Classes;
 
-class Person
+public class Person
 {
     private long id;        
     private String firstname;       
     private String lastname;        
     private String phone;       
     private Address address;        
+    private Credential credential;
 
     public Person() {
     }
 
-    public Person(long id, String firstname, String lastname, String phone, Address address) {
+    public Person(long id, String firstname, String lastname, String phone, Address address, Credential credential) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.phone = phone;
         this.address = address;
+        this.credential = credential;
     }
 
     public Person(long id, String firstname, String lastname, String phone, String street, String city, String state, String zip) {
@@ -91,7 +93,10 @@ class Person
         setAddress(address);
         return this;
     }
-
+    
+    public Credential getCredential() {
+    	return credential;
+    }
 
     @Override
     public String toString() {

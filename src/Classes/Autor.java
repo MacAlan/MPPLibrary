@@ -9,7 +9,7 @@ class Autor extends Person
     }
 
     public Autor(long id, String firstname, String lastname, String phone, Address address,String biography) {
-        super(id, firstname, lastname, phone, address);
+//        super(id, firstname, lastname, phone, address);
         this.biography = biography;
     }
 
