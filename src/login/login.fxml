@@ -7,14 +7,14 @@
 <?import javafx.scene.text.*?>
 
 <GridPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" 
-		  fx:controller="login.Login" alignment="center" hgap="10" vgap="10" >
+		  fx:controller="login.LoginController" alignment="center" hgap="10" vgap="10" >
   <padding><Insets top="25" right="25" bottom="10" left="25" /></padding>
   
   <Text id="welcome-text" text="Welcome" GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.columnSpan="2"/>
   
-  <Label text="User Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+  <Label text="User Id:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
   
-  <TextField fx:id="name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+  <TextField fx:id="uid" GridPane.columnIndex="1" GridPane.rowIndex="1" />
   
   <Label text="Password:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
   
@@ -23,6 +23,8 @@
   <HBox spacing="10" alignment="bottom_right" GridPane.columnIndex="1" GridPane.rowIndex="4">
       <Button text="Sign In" id="button" onAction="#login"/>
   </HBox>
+  
+  <Label fx:id="error" GridPane.columnIndex="0" GridPane.rowIndex="6" />
   
   <Text id="actiontarget" GridPane.columnIndex="1" GridPane.rowIndex="6" />
   
