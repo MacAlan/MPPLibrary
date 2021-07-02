@@ -2,33 +2,33 @@ package Classes;
 
 import java.util.*;
 
-class Member extends Person
+public class LibraryMember extends Person
 {
     private List<role> role;        
     private Credential credential;      
 
 
 
-    public Member(long id, String firstname, String lastname, String phone, Address address,List<role> role, Credential credential ) {
-//     super( id,  firstname,  lastname,  phone,  address);
+    public LibraryMember(long id, String firstname, String lastname, String phone, Address address, List<role> role, Credential credential ) {
+     super( id,  firstname,  lastname,  phone,  address, credential);
      this.role = role;
      this.credential = credential;
     }
 
-    public Member(long id, String firstname, String lastname, String phone, Address address,role role, Credential credential ) {
-//        super( id,  firstname,  lastname,  phone,  address);
+    public LibraryMember(long id, String firstname, String lastname, String phone, String address, List<Classes.role> role, Credential credential ) {
+        super( id,  firstname,  lastname,  phone,  null, credential);
         this.role = new LinkedList<>();
-        this.role.add(role);
+//        this.role.add(role);
         this.credential = credential;
        }
 
-    public Member(long id, String firstname, String lastname, String phone,  String street, String city, String state, String zip ,List<role> role, Credential credential) {
+    public LibraryMember(long id, String firstname, String lastname, String phone, String street, String city, String state, String zip , List<role> role, Credential credential) {
         super(id, firstname, lastname, phone, street, city, state, zip);
         this.role = role;
         this.credential = credential;
     }
 
-    public Member(long id, String firstname, String lastname, String phone,  String street, String city, String state, String zip ,role role, Credential credential) {
+    public LibraryMember(long id, String firstname, String lastname, String phone, String street, String city, String state, String zip , role role, Credential credential) {
         super(id, firstname, lastname, phone, street, city, state, zip);
         this.role = new LinkedList<>();
         this.role.add(role);
@@ -52,6 +52,10 @@ class Member extends Person
     }
     public void setCredential(String user, String password) {
         this.credential =  new Credential(user,password);
+    }
+
+    public String getPassword(){
+        return credential.getPassword();
     }
 
 }

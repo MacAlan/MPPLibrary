@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import Classes.LibraryMember;
+
 public  class DatabaseProvider {
 
 
@@ -18,4 +20,9 @@ public  class DatabaseProvider {
         }
         return conn;
     }
+
+	public static LibraryMember getMemberById(String inputName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
