@@ -15,7 +15,7 @@ public class LibraryMember extends Person
      this.credential = credential;
     }
 
-    public LibraryMember(long id, String firstname, String lastname, String phone, String address, List<Classes.role> role, Credential credential ) {
+    public LibraryMember(long id, String firstname, String lastname, String phone, Address address, role role, Credential credential ) {
         super( id,  firstname,  lastname,  phone,  address);
         this.role = new LinkedList<>();
         this.role.add(role);
