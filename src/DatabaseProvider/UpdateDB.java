@@ -15,7 +15,7 @@ public class UpdateDB {
      */
     private Connection connect() {
         // SQLite connection string
-        String url = "jdbc:sqlite:D:\\Users\\Downloads\\LibraryProject\\src\\lib\\LibraryDB.sqlite";
+        String url = "jdbc:sqlite:.\\src\\lib\\LibraryDB.sqlite";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url);

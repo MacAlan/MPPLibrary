@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
 
-public final class DatabaseProvider {
+public class DatabaseProvider {
 
     public static Connection connection = connect();
 
@@ -120,5 +120,4 @@ public final class DatabaseProvider {
         catch (Exception e){}
         return null;
     }
-
 }
