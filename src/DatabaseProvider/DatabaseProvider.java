@@ -3,8 +3,6 @@ package DatabaseProvider;
 import Classes.*;
 
 import java.awt.print.Book;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -51,8 +49,24 @@ public final class DatabaseProvider {
         return books;
     }
 
-    public static void addLibraryMember(LibraryMember member){
+    public static void addLibraryMember(String firstname, String lastname, String phone, String street, String city, String state, String zip){
 
+        String sql = "INSERT INTO LibraryMember(firstname,lastname,phone,street,  city, state, zip) VALUES(?,?,?,?,?,?,?)";
+
+        try (Connection conn = connect();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setString(1, firstname);
+            pstmt.setString(2, lastname);
+            pstmt.setString(3, phone);
+            pstmt.setString(4, street);
+            pstmt.setString(5, city);
+            pstmt.setString(6, state);
+            pstmt.setString(7, zip);
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public static void addBook(Book book){
