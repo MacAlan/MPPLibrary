@@ -24,16 +24,20 @@ public class InsertDB extends DatabaseProvider{
             }
         }
 
-        public void insertLibraryMember(String firstname,String lastname, String phone, Integer address_id) {
+        public void insertLibraryMember(String firstname,String lastname, String phone, String street, String city,String state,String zip) {
 
-            String sql = "INSERT INTO LibraryMember(firstname,lastname,phone,address_id) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO LibraryMember(firstname,lastname,phone,street,  city, state, zip) VALUES(?,?,?,?,?,?,?)";
 
             try (Connection conn = connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 pstmt.setString(1, firstname);
                 pstmt.setString(2, lastname);
                 pstmt.setString(3, phone);
-                pstmt.setInt(4, address_id);
+                pstmt.setString(4, street);
+                pstmt.setString(5, city);
+                pstmt.setString(6, state);
+                pstmt.setString(7, zip);
+
                 pstmt.executeUpdate();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
