@@ -10,13 +10,13 @@ class Member extends Person
 
 
     public Member(long id, String firstname, String lastname, String phone, Address address,List<role> role, Credential credential ) {
-     super( id,  firstname,  lastname,  phone,  address);
+//     super( id,  firstname,  lastname,  phone,  address);
      this.role = role;
      this.credential = credential;
     }
 
     public Member(long id, String firstname, String lastname, String phone, Address address,role role, Credential credential ) {
-        super( id,  firstname,  lastname,  phone,  address);
+//        super( id,  firstname,  lastname,  phone,  address);
         this.role = new LinkedList<>();
         this.role.add(role);
         this.credential = credential;
