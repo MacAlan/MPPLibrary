@@ -174,9 +174,9 @@ public class InsertDB extends DatabaseProvider{
             InsertDB app = new InsertDB();
             // insert three new rows
             app.insertAddress("1000 North","Chicago","IL","52557");
-            app.insertLibraryMember("Tolganay","Muntinova","+77073095636",1);
-            app.insertLibraryMember("Marat","Muntinov","+87073095636",0);
-            app.insertLibraryMember("Sharlie","Moon","+87073095636",1);
+            app.insertLibraryMember("Tolganay","Muntinova","+77073095636","","","","");
+            app.insertLibraryMember("Marat","Muntinov","+87073095636","","","","");
+            app.insertLibraryMember("Sharlie","Moon","+87073095636","","","","");
             app.insertAuthors("Robert",null,"+87073095636",0,"1255 Prinston","Professor");
           //  app.insertRoles("LIBRARIAN");
           // app.insertRoles("ADMIN");

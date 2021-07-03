@@ -3,6 +3,7 @@ package mainBoard;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import Utility.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,6 +21,7 @@ public class MainBoardController implements Initializable {
 	@FXML
     private void addMember(ActionEvent event) throws Exception {
 		System.out.println("add library member implement here !");
+		Utility.showAddMember();
 	}
 	
 	@FXML
