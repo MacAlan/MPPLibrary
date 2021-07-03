@@ -16,7 +16,7 @@ public class SelectDB {
 
         private Connection connect() {
             // SQLite connection string
-            String url = "jdbc:sqlite:.\\src\\lib\\LibraryDB.sqlite";
+            String url = "jdbc:sqlite:D:\\Users\\Downloads\\LibraryProject\\src\\lib\\LibraryDB.sqlite";
             Connection conn = null;
             try {
                 conn = DriverManager.getConnection(url);
@@ -27,7 +27,7 @@ public class SelectDB {
         }
 
         public void selectAll(){
-            String sql = "SELECT id, name, capacity FROM users";
+            String sql = "SELECT id, name, capacity FROM warehouses";
 
             try (Connection conn = this.connect();
                  Statement stmt  = conn.createStatement();

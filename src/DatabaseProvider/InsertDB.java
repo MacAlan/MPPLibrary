@@ -6,38 +6,19 @@ import java.sql.SQLException;
 import java.sql.Date;
 import java.util.Calendar;
 
-public class InsertDB extends DatabaseProvider{
+public class InsertDB extends  DatabaseProvider{
 
-        public void insertAddress(String street, String city,String state,String zip) {
 
-            String sql = "INSERT INTO Address(street,city,state,zip) VALUES(?,?,?,?)";
+        public void insertLibraryMember(String firstname,String lastname, String phone, Integer address_id) {
 
-            try (Connection conn = connect();
-                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                pstmt.setString(1, street);
-                pstmt.setString(2, city);
-                pstmt.setString(3, state);
-                pstmt.setString(4, zip);
-                pstmt.executeUpdate();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-
-        public void insertLibraryMember(String firstname,String lastname, String phone, String street, String city,String state,String zip) {
-
-            String sql = "INSERT INTO LibraryMember(firstname,lastname,phone,street,  city, state, zip) VALUES(?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO LibraryMember(firstname,lastname,phone,address_id) VALUES(?,?,?,?)";
 
             try (Connection conn = connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
                 pstmt.setString(1, firstname);
                 pstmt.setString(2, lastname);
                 pstmt.setString(3, phone);
-                pstmt.setString(4, street);
-                pstmt.setString(5, city);
-                pstmt.setString(6, state);
-                pstmt.setString(7, zip);
-
+                pstmt.setInt(4, address_id);
                 pstmt.executeUpdate();
             } catch (SQLException e) {
                 System.out.println(e.getMessage());
@@ -174,9 +155,9 @@ public class InsertDB extends DatabaseProvider{
             InsertDB app = new InsertDB();
             // insert three new rows
             app.insertAddress("1000 North","Chicago","IL","52557");
-            app.insertLibraryMember("Tolganay","Muntinova","+77073095636","","","","");
-            app.insertLibraryMember("Marat","Muntinov","+87073095636","","","","");
-            app.insertLibraryMember("Sharlie","Moon","+87073095636","","","","");
+            app.insertLibraryMember("Tolganay","Muntinova","+77073095636",1);
+            app.insertLibraryMember("Marat","Muntinov","+87073095636",0);
+            app.insertLibraryMember("Sharlie","Moon","+87073095636",1);
             app.insertAuthors("Robert",null,"+87073095636",0,"1255 Prinston","Professor");
           //  app.insertRoles("LIBRARIAN");
           // app.insertRoles("ADMIN");

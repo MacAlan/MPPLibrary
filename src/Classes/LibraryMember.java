@@ -7,16 +7,18 @@ public class LibraryMember extends Person
     private List<role> role;        
     private Credential credential;      
 
+
+
     public LibraryMember(long id, String firstname, String lastname, String phone, Address address, List<role> role, Credential credential ) {
-     super( id,  firstname,  lastname,  phone,  address, credential);
+     super( id,  firstname,  lastname,  phone,  address);
      this.role = role;
      this.credential = credential;
     }
 
-    public LibraryMember(long id, String firstname, String lastname, String phone, String address, List<Classes.role> role, Credential credential ) {
-        super( id,  firstname,  lastname,  phone,  null, credential);
+    public LibraryMember(long id, String firstname, String lastname, String phone, Address address, role role, Credential credential ) {
+        super( id,  firstname,  lastname,  phone,  address);
         this.role = new LinkedList<>();
-//        this.role.add(role);
+        this.role.add(role);
         this.credential = credential;
        }
 
@@ -54,5 +56,10 @@ public class LibraryMember extends Person
 
     public String getPassword(){
         return credential.getPassword();
+    }
+
+    @Override
+    public String toString() {
+        return this.getFirstname() + this.getLastname();
     }
 }

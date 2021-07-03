@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<TabPane fx:id="mainTab" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Checkout.CheckoutController">
+  <tabs>
+    <Tab closable="false" text="Checkouts">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TableView fx:id="CheckOutTable" editable="false" layoutX="14.0" layoutY="16.0" prefHeight="322.0" prefWidth="568.0" AnchorPane.bottomAnchor="33.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="18.0" AnchorPane.topAnchor="16.0">
+                     <columns>
+                        <TableColumn fx:id="ISBN" prefWidth="157.0" text="ISBN" />
+                        <TableColumn fx:id="bookTitle" prefWidth="113.0" text="Book Title" />
+                        <TableColumn fx:id="member" prefWidth="221.0" text="Member" />
+                     </columns></TableView>
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab closable="false" text="Check book">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="236.0" layoutY="23.0" text="Input ISBN and Member ID" />
+                  <Button fx:id="ISBN_ID_search" layoutX="137.0" layoutY="173.0" mnemonicParsing="false" onAction="#checkISBMMemberId" text="Search" />
+                  <TextField fx:id="inputISBN" layoutX="162.0" layoutY="81.0" />
+                  <TextField fx:id="inputMID" layoutX="162.0" layoutY="123.0" />
+                  <Button fx:id="GoToRegCheckout" layoutX="200.0" layoutY="173.0" mnemonicParsing="false" onAction="#GoToRegCheckout" text="Register checkout" />
+                  <Label layoutX="54.0" layoutY="85.0" text="ISBN" />
+                  <Label layoutX="54.0" layoutY="127.0" text="Member Id" />
+                  <Text fx:id="searchResult" layoutX="178.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab fx:id="checkout" closable="false" text="Checkout">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="236.0" layoutY="23.0" text="Register Checkout" />
+                  <TextField fx:id="registerISBN" layoutX="162.0" layoutY="81.0" />
+                  <TextField fx:id="registerMID" layoutX="162.0" layoutY="268.0" />
+                  <Button layoutX="475.0" layoutY="325.0" mnemonicParsing="false" text="Register checkout" />
+                  <Label layoutX="54.0" layoutY="85.0" text="ISBN" />
+                  <Label layoutX="54.0" layoutY="272.0" text="Member Id" />
+                  <Button layoutX="325.0" layoutY="81.0" mnemonicParsing="false" text="Add Book" />
+                  <ListView fx:id="CheckoutBooks" layoutX="407.0" layoutY="81.0" prefHeight="200.0" prefWidth="168.0" />
+                  <Label layoutX="427.0" layoutY="58.0" text="Checkout books" />
+                  <Label layoutX="53.0" layoutY="138.0" text="Checkout date" />
+                  <Label layoutX="53.0" layoutY="186.0" text="Due date" />
+                  <Text fx:id="checkoutDate" layoutX="162.0" layoutY="138.0" />
+                  <Text fx:id="dueDateLabel" layoutX="162.0" layoutY="186.0" />
+                  <Text fx:id="searchResultText" layoutX="162.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
