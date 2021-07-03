@@ -1,6 +1,6 @@
 package Classes;
 
-class Autor extends Person
+public class Autor extends Person
 {
     private String biography;       
 
@@ -9,7 +9,12 @@ class Autor extends Person
     }
 
     public Autor(long id, String firstname, String lastname, String phone, Address address,String biography) {
-//        super(id, firstname, lastname, phone, address);
+        super(id, firstname, lastname, phone, address);
+        this.biography = biography;
+    }
+
+    public Autor(long id, String firstname, String lastname, String phone, String biography) {
+        super(id, firstname, lastname, phone);
         this.biography = biography;
     }
 

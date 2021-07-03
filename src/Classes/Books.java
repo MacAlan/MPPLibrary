@@ -2,40 +2,34 @@ package Classes;
 
 import java.util.*;
 
-class Books
+public class Books
 {
     private String title;       
     private String ISBN;        
-    private List<Autor> autors = new LinkedList<>();     
-    private boolean availability;       
+    private Autor autors;
+
+    public Autor getAutors() {
+        return autors;
+    }
+
+    public void setAutors(Autor autors) {
+        this.autors = autors;
+    }
+
+    private boolean availability;
     private int days;       
 
     public Books() {
     }
 
-    public Books(String title, String ISBN, boolean availability, int days,List<Autor> autors) {
+    public Books(String title, String ISBN, boolean availability, int days,Autor autors) {
         this.title = title;
         this.ISBN = ISBN;
         this.availability = availability;
         this.days = days;
         this.autors = autors;
     }
-    public Books(String title, String ISBN, boolean availability, int days, Autor autor) {
-        this.title = title;
-        this.ISBN = ISBN;
-        this.availability = availability;
-        this.days = days;
-        this.autors = new LinkedList<>();
-        this.autors.add(autor);
 
-    }
-    public void addAutor(Autor autor){
-        autors.add(autor);
-    }
-
-    public List<Autor> getAutors(){
-        return this.autors;
-    }
 
     public String getTitle() {
         return this.title;
@@ -76,14 +70,9 @@ class Books
 
     @Override
     public String toString() {
-        return "{" +
-            " title='" + getTitle() + "'" +
+        return " title='" + getTitle() + "'" +
             ", ISBN='" + getISBN() + "'" +
-            ", autors='" + getAutors() + "'" +
-            ", availability='" + isAvailability() + "'" +
-            ", days='" + getDays() + "'" +
-            "}";
+            ", autor='" + getAutors() + "'" ;
     }
-
       
 }
