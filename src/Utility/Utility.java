@@ -23,6 +23,10 @@ public class Utility extends Application {
 		utility.start("/mainBoard/mainBoard.fxml", "mainBoard/mainBoard.css", 800, 600);
 	}
 	
+	public static void showAddMember() throws Exception {
+		utility.start("/addMember/addMember.fxml", "addMember/addMember.css", 800, 600);
+	}
+	
 	@Override
 	public void start(Stage stage) throws Exception {
 	}
