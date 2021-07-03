@@ -2,21 +2,16 @@ package Classes;
 import java.util.*;
 
 public class Checkout {
-    private final Person person;      
-    private List<CheckoutEntry> CheckoutEntries;   
+    private final String person_id;
+    public List<CheckoutEntry> CheckoutEntries;
 
-
-    public Checkout(Person person) {
-        this.person = person;
+    public Checkout(String person_id, List<CheckoutEntry> checkoutEntries) {
+        this.person_id = person_id;
+        CheckoutEntries = checkoutEntries;
     }
 
-    public void addEntry(CheckoutEntry entry){
-        CheckoutEntries.add(entry);
-    }
-
-
-    public Person getPerson() {
-        return this.person;
+    public String getPerson() {
+        return this.person_id;
     }
 
 

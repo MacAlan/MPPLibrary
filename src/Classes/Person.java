@@ -6,25 +6,16 @@ class Person
     private String firstname;       
     private String lastname;        
     private String phone;       
-    private Address address;        
-
-    public Person() {
-    }
-
-    public Person(long id, String firstname, String lastname, String phone, Address address) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.phone = phone;
-        this.address = address;
-    }
+    private String street;
+    private String city;
+    private String state;
+    private String zip;
 
     public Person(long id, String firstname, String lastname, String phone) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.phone = phone;
-
     }
 
     public Person(long id, String firstname, String lastname, String phone, String street, String city, String state, String zip) {
@@ -32,9 +23,44 @@ class Person
         this.firstname = firstname;
         this.lastname = lastname;
         this.phone = phone;
-        this.address = new Address (street, city, state, zip);
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
     }
-    
+
+    public String getStreet() {
+        return street;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
+    }
+
     public long getId() {
         return this.id;
     }
@@ -67,13 +93,7 @@ class Person
         this.phone = phone;
     }
 
-    public Address getAddress() {
-        return this.address;
-    }
 
-    public void setAddress(Address address) {
-        this.address = address;
-    }
 
     public Person id(long id) {
         setId(id);
@@ -95,21 +115,5 @@ class Person
         return this;
     }
 
-    public Person address(Address address) {
-        setAddress(address);
-        return this;
-    }
-
-
-    @Override
-    public String toString() {
-        return "{" +
-            " id='" + getId() + "'" +
-            ", firstname='" + getFirstname() + "'" +
-            ", lastname='" + getLastname() + "'" +
-            ", phone='" + getPhone() + "'" +
-            ", address='" + getAddress() + "'" +
-            "}";
-    }
    
 }

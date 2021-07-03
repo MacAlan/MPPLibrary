@@ -4,14 +4,6 @@ public class Autor extends Person
 {
     private String biography;       
 
-    public Autor() {
-        super();
-    }
-
-    public Autor(long id, String firstname, String lastname, String phone, Address address,String biography) {
-        super(id, firstname, lastname, phone, address);
-        this.biography = biography;
-    }
 
     public Autor(long id, String firstname, String lastname, String phone, String biography) {
         super(id, firstname, lastname, phone);

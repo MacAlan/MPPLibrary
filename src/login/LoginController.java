@@ -2,7 +2,7 @@ package login;
 
 import Classes.*;
 import DatabaseProvider.DatabaseProvider;
-import Utility.Utility;
+import mainBoard.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

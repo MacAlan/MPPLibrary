@@ -40,7 +40,7 @@ public class CheckoutController {
     @FXML private Tab checkout;
     private  boolean goToReg = false;
 
-    private List<Books> books = new LinkedList<>();
+    private List<BookCopy> books = new LinkedList<>();
 
 
     /***/
@@ -84,10 +84,12 @@ public class CheckoutController {
             List<Books> books = DatabaseProvider.getBooksByISBN(inputISBN.getText());
             if (books.size()==0){
                 searchResult.setText("No Books found by ISBN");
+                System.out.println(books.size());
             }
-            if (books.size()>0 && false){
+            if (books.size()>0 && !books.get(0).getAvailability()){
 
                 searchResult.setText("Books not available");
+
             }
             if (member==null){
                 searchResult.setText("No Member found by ID");
@@ -105,8 +107,8 @@ public class CheckoutController {
             registerISBN.setText(inputISBN.getText());
             registerMID.setText(inputMID.getText());
             checkoutDate.setText(LocalDate.now().toString());
-            Books b = DatabaseProvider.getBookByISBN(registerISBN.getText());
-            dueDateLabel.setText(LocalDate.now().plusDays(b.getDays()).toString());
+            BookCopy b = DatabaseProvider.getBookCopyByISBN(registerISBN.getText());
+            dueDateLabel.setText(LocalDate.now().plusDays(b.getBook().getDays()).toString());
             books.add(b);
             CheckoutBooks.getItems().add(b.toString());
         }
@@ -115,24 +117,14 @@ public class CheckoutController {
 
 
     @FXML
-    public void registerCheckout(){
-        if(books.size()==0 || registerMID.getText().equals("")){
-            searchResultText.setText("No Books or Memberid is empty");
-        }else {
-
-        }
-
-    }
-
-    @FXML
     public void addBookToCheckout(){
 
         if(registerISBN.getText().equals("")){
             searchResultText.setText("Fill up ISBN");
         }
         else{
-            Books b = DatabaseProvider.getBookByISBN(registerISBN.getText());
-            if (b!=null && !b.getAvailability()){
+            BookCopy b = DatabaseProvider.getBookCopyByISBN(registerISBN.getText());
+            if (b!=null && !b.getBook().getAvailability()){
                 searchResultText.setText("Book not available");
             }else if (b==null){
                 searchResultText.setText("Book not found");
@@ -142,6 +134,31 @@ public class CheckoutController {
                 CheckoutBooks.getItems().add(b.toString());
             }
         }
+    }
 
+    @FXML
+    public void register(){
+        searchResultText.setText("");
+        if(registerMID.getText().equals("") ){
+            searchResultText.setText("Input MemberID");
+        }
+        if (books.size()==0){
+            searchResultText.setText("Add some Books");
+        }
+        if(!registerMID.getText().equals("") && books.size()>0){
+            List<CheckoutEntry> list = new LinkedList<>();
+            for (BookCopy a: books) {
+                list.add(new CheckoutEntry(LocalDate.now().plusDays(a.getBook().getDays()), LocalDate.now(),a ));
+                System.out.println(LocalDate.now().plusDays(a.getBook().getDays()));
+                System.out.println(a);
+            }
+            Checkout c = new Checkout(registerMID.getText(),list);
+            DatabaseProvider.addCheckout(c);
+            books.clear();
+            registerMID.setText("");
+            registerISBN.setText("");
+            CheckoutBooks.getItems().clear();
+            dueDateLabel.setText("");
+        }
     }
 }

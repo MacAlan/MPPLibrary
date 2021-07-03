@@ -97,7 +97,7 @@ public class CreateDB extends DatabaseProvider {
 
 
 
-        try (Connection conn = DatabaseProvider.connection;
+        try (Connection conn = DatabaseProvider.connect();
              Statement stmt = conn.createStatement()) {
              stmt.execute(address);
              stmt.execute(member);

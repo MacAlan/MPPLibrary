@@ -3,7 +3,6 @@ package mainBoard;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Utility.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,10 +26,17 @@ public class MainBoardController implements Initializable {
 	@FXML
     private void checkoutBook(ActionEvent event) throws Exception {
 		System.out.println("checkout book implement here !");
+		Utility.showChechout();
 	}
 	
 	@FXML
     private void addCopyBook(ActionEvent event) throws Exception {
 		System.out.println("add copy of a existing book implement here !");
 	}
+	@FXML
+	private void addBook(ActionEvent event) throws Exception {
+		System.out.println("add copy of a existing book implement here !");
+		Utility.showAddBooks();
+	}
+
 }

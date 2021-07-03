@@ -1,7 +1,7 @@
 package sample;
 
 import Classes.LibraryMember;
-import Utility.Utility;
+import mainBoard.Utility;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

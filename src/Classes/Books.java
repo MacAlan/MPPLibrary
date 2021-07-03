@@ -7,6 +7,7 @@ public class Books
     private String title;       
     private String ISBN;        
     private Autor autors;
+    public int id;
 
     public Autor getAutors() {
         return autors;
@@ -28,6 +29,15 @@ public class Books
         this.availability = availability;
         this.days = days;
         this.autors = autors;
+    }
+
+    public Books(String title, String ISBN, boolean availability, int days,Autor autors, int id) {
+        this.title = title;
+        this.ISBN = ISBN;
+        this.availability = availability;
+        this.days = days;
+        this.autors = autors;
+        this.id = id;
     }
 
 

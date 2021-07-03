@@ -35,7 +35,7 @@ public class AddMemberController {
 			status.setText("Fill in all the fields");
 		}
 		else {
-			DatabaseProvider.addLibraryMember(fName,lName,phoneN,str,cit,st,zp);
+			/*DatabaseProvider.addLibraryMember(fName,lName,phoneN,str,cit,st,zp);
 			status.setText("User is added to database");
 			first_name.clear();
 			last_name.clear();
@@ -44,7 +44,7 @@ public class AddMemberController {
 			state.clear();
 			zip.clear();
 			phone_number.clear();
-
+*/
 		}
 	}
 }

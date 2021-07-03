@@ -11,7 +11,7 @@ public class InsertDB extends  DatabaseProvider{
 
         public void insertLibraryMember(String firstname,String lastname, String phone, Integer address_id) {
 
-            String sql = "INSERT INTO LibraryMember(firstname,lastname,phone,address_id) VALUES(?,?,?,?)";
+            String sql = "INSERT INTO LibraryMember(firstname,lastname,phone,street) VALUES(?,?,?,?)";
 
             try (Connection conn = connect();
                  PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -86,7 +86,7 @@ public class InsertDB extends  DatabaseProvider{
             }
         }
 
-        public void InsertBooks(String title,String ISBN,Integer author_id,Integer borrowDay,Integer availability ) {
+      /*  public void InsertBooks(String title,String ISBN,Integer author_id,Integer borrowDay,Integer availability ) {
 
             String sql = "INSERT INTO Books(title,ISBN,author_id,borrowDay,availability) VALUES(?,?,?,?,?)";
 
@@ -117,7 +117,7 @@ public class InsertDB extends  DatabaseProvider{
                 System.out.println(e.getMessage());
             }
         }
-
+*/
       public void InsertCheckoutRecords( Integer member_id ) {
 
             String sql = "INSERT INTO CheckoutRecords( member_id) VALUES(?)";
@@ -154,7 +154,7 @@ public class InsertDB extends  DatabaseProvider{
 
             InsertDB app = new InsertDB();
             // insert three new rows
-            app.insertAddress("1000 North","Chicago","IL","52557");
+           // app.insertAddress("1000 North","Chicago","IL","52557");
             app.insertLibraryMember("Tolganay","Muntinova","+77073095636",1);
             app.insertLibraryMember("Marat","Muntinov","+87073095636",0);
             app.insertLibraryMember("Sharlie","Moon","+87073095636",1);
@@ -176,9 +176,9 @@ public class InsertDB extends  DatabaseProvider{
             app.InsertCopyBooks(3);
 
             app.InsertCheckoutRecords(1);
-            app.InsertCheckoutEntries(1,2,new java.sql.Date(Calendar.getInstance().getTimeInMillis()),new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+            app.InsertCheckoutEntries(1,2,new Date(Calendar.getInstance().getTimeInMillis()),new Date(Calendar.getInstance().getTimeInMillis()));
 
-            app.InsertCheckoutEntries(1,1,new java.sql.Date(Calendar.getInstance().getTimeInMillis()),new java.sql.Date(Calendar.getInstance().getTimeInMillis()));
+            app.InsertCheckoutEntries(1,1,new Date(Calendar.getInstance().getTimeInMillis()),new Date(Calendar.getInstance().getTimeInMillis()));
 
         }
 

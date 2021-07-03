@@ -2,6 +2,10 @@ package Classes;
 
 import java.util.*;
 public class BookCopy {
+    public String getCopyNumber() {
+        return copyNumber;
+    }
+
     private final Books book;
     private final String copyNumber;
 
@@ -25,9 +29,12 @@ public class BookCopy {
     }
 
 
-    public String getCopyNumber() {
-        return this.copyNumber;
+
+    @Override
+    public String toString() {
+        return "BookCopy{" +
+                "book=" + book +
+                ", copyNumber='" + copyNumber + '\'' +
+                '}';
     }
-
-
 }
