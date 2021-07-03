@@ -1,8 +1,10 @@
 package mainBoard;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import Classes.role;
 import Utility.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -29,7 +31,16 @@ public class MainBoardController implements Initializable {
 		lname.setText(Main.user.getLastname());
 		phone.setText(Main.user.getPhone());
 		
-		addCopyBook.setVisible(false);
+		List<role> roles = Main.user.getRole();
+		System.out.println("ROLES ARE:"+roles);
+		if(roles.contains(role.admin)) {
+			System.out.println("has admin!");
+			addCopyBook.setVisible(true);
+		}
+		if(roles.contains(role.librarian)) {
+			System.out.println("has library!");
+			checkoutBook.setVisible(true);
+		}
 	} 
 	
 	@FXML

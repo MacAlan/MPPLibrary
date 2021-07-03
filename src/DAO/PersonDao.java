@@ -36,8 +36,8 @@ public class PersonDao implements DAO {
 	
 	// Erase after db complete ! just for test
 	private void createDummyUserData() {
-		persons.add(new Person(1, "One", "1", "1", null, new Credential("credential1", "123")));
-		persons.add(new Person(2, "Two", "2", "2", null, new Credential("credential2", "234")));
-		persons.add(new Person(3, "One", "3", "3", null, new Credential("credential3", "345")));
+		persons.add(new Person(1, "One", "1", "1", null));
+		persons.add(new Person(2, "Two", "2", "2", null));
+		persons.add(new Person(3, "One", "3", "3", null));
 	}
 }

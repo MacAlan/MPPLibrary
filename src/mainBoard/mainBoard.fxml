@@ -17,15 +17,15 @@
   <Label fx:id="phone" GridPane.columnIndex="0" GridPane.rowIndex="4" />
 
   <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="1">
-      <Button text="Add library member" fx:id="addMember" onAction="#addMember"/>
+      <Button text="Add library member" fx:id="addMember" onAction="#addMember" visible="false" />
   </HBox>
   
   <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="2">
-      <Button text="Checkout book" fx:id="checkoutBook" onAction="#checkoutBook"/>
+      <Button text="Checkout book" fx:id="checkoutBook" onAction="#checkoutBook" visible="false" />
   </HBox>
   
   <HBox spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="3">
-      <Button text="Add copy of an existing book" fx:id="addCopyBook" onAction="#addCopyBook"/>
+      <Button text="Add copy of an existing book" fx:id="addCopyBook" onAction="#addCopyBook" />
   </HBox>
 
 </GridPane>
