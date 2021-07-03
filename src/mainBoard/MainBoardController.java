@@ -7,15 +7,29 @@ import Utility.Utility;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
 import sample.Main;
 
 public class MainBoardController implements Initializable {
-	@FXML private Label welcome;
+	@FXML private GridPane greadpane;
+	@FXML private Label uniqid;
+	@FXML private Label fname;
+	@FXML private Label lname;
+	@FXML private Label phone;
+	@FXML private Button addMember;
+	@FXML private Button checkoutBook;
+	@FXML private Button addCopyBook;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		welcome.setText("Welcome "+Main.user.getFirstname());
+		uniqid.setText(""+Main.user.getId());
+		fname.setText(Main.user.getFirstname());
+		lname.setText(Main.user.getLastname());
+		phone.setText(Main.user.getPhone());
+		
+		addCopyBook.setVisible(false);
 	} 
 	
 	@FXML
