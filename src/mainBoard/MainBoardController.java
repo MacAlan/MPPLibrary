@@ -32,14 +32,18 @@ public class MainBoardController implements Initializable {
 		phone.setText(Main.user.getPhone());
 		
 		List<role> roles = Main.user.getRole();
-		System.out.println("ROLES ARE:"+roles);
-		if(roles.contains(role.admin)) {
-			System.out.println("has admin!");
-			addCopyBook.setVisible(true);
-		}
-		if(roles.contains(role.librarian)) {
-			System.out.println("has library!");
+		if(roles.isEmpty()) {
+			addMember.setVisible(true);
 			checkoutBook.setVisible(true);
+		} else {
+			if(roles.contains(role.admin)) {
+				System.out.println("has admin!");
+				addMember.setVisible(true);
+			}
+			if(roles.contains(role.librarian)) {
+				System.out.println("has library!");
+				checkoutBook.setVisible(true);
+			}
 		}
 	} 
 	
