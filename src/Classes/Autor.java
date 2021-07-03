@@ -8,11 +8,6 @@ public class Autor extends Person
         super();
     }
 
-    public Autor(long id, String firstname, String lastname, String phone, Address address,String biography) {
-        super(id, firstname, lastname, phone, address);
-        this.biography = biography;
-    }
-
     public Autor(long id, String firstname, String lastname, String phone, String biography) {
         super(id, firstname, lastname, phone);
         this.biography = biography;
@@ -33,9 +28,7 @@ public class Autor extends Person
 
     @Override
     public String toString() {
-        return "{" +
-            " biography='" + getBiography() + "'" +
-            "}";
+        return  getId() +" : " +this.getFirstname() + " " + getLastname();
     }
  
 }

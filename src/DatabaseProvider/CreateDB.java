@@ -8,24 +8,15 @@ public class CreateDB extends DatabaseProvider {
 
     public static void createNewTable() {
 
-        String address = "   create table IF NOT EXISTS Address(" +
-                "                        id        INTEGER not null  primary key autoincrement,\n" +
-                "                        street    VARCHAR(200)  null,\n" +
-                "                        city      VARCHAR(200)  null,\n" +
-                "                        state     VARCHAR(10)  null,\n" +
-                "                        zip       VARCHAR(10)  null\n" +
-                "                );";
-
-
         String member = "   create table IF NOT EXISTS LibraryMember(" +
                 "                        memberId     INTEGER not null primary key autoincrement ,\n" +
                 "                        firstname VARCHAR(200)  null ,\n" +
                 "                        lastname      VARCHAR(200)  null,\n" +
                 "                        phone VARCHAR(10)  null,\n" +
-                "                        address_id   int(10)  null\n," +
-                "                        FOREIGN KEY (address_id)\n" +
-                "                                         REFERENCES Address (id) ON UPDATE CASCADE ON DELETE SET NULL" +
-
+                "                        street    VARCHAR(200)  null,\n" +
+                "                        city      VARCHAR(200)  null,\n" +
+                "                        state     VARCHAR(10)  null,\n" +
+                "                        zip       VARCHAR(10)  null\n" +
                 "                );";
 
         String author = "   create table IF NOT EXISTS Authors(" +
@@ -35,18 +26,22 @@ public class CreateDB extends DatabaseProvider {
                 "                        phone VARCHAR(10)  null,\n" +
                 "                        credential VARCHAR(10)  null,\n" +
                 "                        bio VARCHAR(10)  null,\n" +
-                "                        address_id   int(10)  null\n," +
-                "                        FOREIGN KEY (address_id) REFERENCES Address (id) ON UPDATE CASCADE ON DELETE SET NULL" +
+                "                        street    VARCHAR(200)  null,\n" +
+                "                        city      VARCHAR(200)  null,\n" +
+                "                        state     VARCHAR(10)  null,\n" +
+                "                        zip       VARCHAR(10)  null\n" +
 
                 ");";
 
            String user = "   create table IF NOT EXISTS Users(" +
                 "                        id  INTEGER not null primary key autoincrement,\n" +
                 "                        member_id   int(10)\n," +
+                   "                     login   VARCHAR(200),\n" +
                 "                        password    VARCHAR(200),\n" +
                 "                        FOREIGN KEY (member_id)  REFERENCES LibraryMember (memberId)" +
 
                 ");";
+
 
          String roles = "   create table IF NOT EXISTS Roles(" +
                 "                        id  INTEGER not null primary key autoincrement,\n" +
@@ -76,6 +71,7 @@ public class CreateDB extends DatabaseProvider {
         String bookCopy = "   create table IF NOT EXISTS BookCopy(" +
                 "                        id  INTEGER not null primary key autoincrement,\n" +
                 "                        book_id  int(10),\n" +
+                "                        availability  int(10),\n" +
                 "                        FOREIGN KEY (book_id)  REFERENCES Books(id)" +
                 ");";
 
@@ -99,7 +95,6 @@ public class CreateDB extends DatabaseProvider {
 
         try (Connection conn = DatabaseProvider.connection;
              Statement stmt = conn.createStatement()) {
-             stmt.execute(address);
              stmt.execute(member);
              stmt.execute(author);
              stmt.execute(user);

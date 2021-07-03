@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.addBooks.AddBooksController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0">
+         <BorderPane.margin>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+   <center>
+      <TabPane prefHeight="652.0" prefWidth="928.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab text="Add new Book">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" />
+                        <TextField fx:id="ISBN" layoutX="194.0" layoutY="78.0" prefHeight="38.0" prefWidth="344.0" />
+                        <Label layoutX="49.0" layoutY="80.0" prefHeight="34.0" prefWidth="62.0" text="ISBN" />
+                        <Label layoutX="49.0" layoutY="126.0" prefHeight="34.0" prefWidth="62.0" text="Book title" />
+                        <TextField fx:id="title" layoutX="194.0" layoutY="124.0" prefHeight="38.0" prefWidth="345.0" />
+                        <Label layoutX="49.0" layoutY="174.0" prefHeight="34.0" prefWidth="62.0" text="Authors" />
+                        <Label layoutX="49.0" layoutY="229.0" prefHeight="34.0" prefWidth="119.0" text="Borrow days" />
+                        <TextField fx:id="borrowDays" layoutX="194.0" layoutY="227.0" prefHeight="38.0" prefWidth="346.0" />
+                        <ChoiceBox fx:id="authors" layoutX="194.0" layoutY="174.0" prefHeight="39.0" prefWidth="346.0" />
+                        <TextField fx:id="numberCopies" layoutX="193.0" layoutY="285.0" prefHeight="38.0" prefWidth="346.0" />
+                        <Label layoutX="52.0" layoutY="285.0" prefHeight="34.0" prefWidth="119.0" text="Number of copies" />
+                        <Button layoutX="559.0" layoutY="174.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="118.0" text="Add new Authors" />
+                        <Button layoutX="423.0" layoutY="344.0" mnemonicParsing="false" onAction="#insertBook" prefHeight="43.0" prefWidth="117.0" text="add book" />
+                        <Label layoutX="40.0" layoutY="24.0" prefHeight="29.0" prefWidth="183.0" text="Add new book">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="error" layoutX="78.0" layoutY="344.0" prefHeight="82.0" prefWidth="331.0">
+                           <font>
+                              <Font size="14.0" />
+                           </font></Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Add copy Book">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane prefHeight="513.0" prefWidth="931.0">
+                           <children>
+                              <TableView fx:id="copyBook" layoutX="26.0" layoutY="203.0" prefHeight="100.0" prefWidth="876.0">
+                                <columns>
+                                  <TableColumn fx:id="ISBN1" prefWidth="164.0" text="ISBN" />
+                                  <TableColumn fx:id="bookTitle" prefWidth="239.0" text="Title" />
+                                    <TableColumn fx:id="author" prefWidth="309.0" text="Author" />
+                                    <TableColumn fx:id="copies" prefWidth="163.0" text="Number of copy" />
+                                </columns>
+                              </TableView>
+                              <Label layoutX="47.0" layoutY="83.0" prefHeight="46.0" prefWidth="111.0" text="ISBN">
+                                 <font>
+                                    <Font size="17.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="isbnSearch" layoutX="95.0" layoutY="89.0" prefHeight="34.0" prefWidth="304.0" />
+                              <Button fx:id="search" layoutX="421.0" layoutY="88.0" mnemonicParsing="false" onAction="#insertCopy" prefHeight="34.0" prefWidth="72.0" text="search" />
+                              <Button fx:id="addCopies" layoutX="420.0" layoutY="143.0" mnemonicParsing="false" onAction="#insertCountCopy" prefHeight="33.0" prefWidth="74.0" text="add copy" />
+                              <TextField fx:id="CountCopies" layoutX="95.0" layoutY="142.0" prefHeight="34.0" prefWidth="304.0" />
+                           </children></AnchorPane>
+                        <Label layoutX="50.0" layoutY="34.0" prefHeight="29.0" prefWidth="183.0" text="Add Copy book">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Label>
+
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Add/Edit Authors">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane alignment="center" hgap="10" prefHeight="603.0" prefWidth="506.0" vgap="30">
+                           <padding>
+                              <Insets bottom="10" left="25" right="25" top="25" />
+                           </padding>
+                           <children>
+                              <Text id="welcome-text" text="New Author Form" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="first_name1" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="last_name1" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Street:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="street1" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="City:" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="city1" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="State:" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="state1" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label text="Zip:" GridPane.columnIndex="0" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="zip1" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="Phone number:" GridPane.columnIndex="0" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="phone_number1" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                 <children>
+                                    <Button id="button" onAction="#addMember" text="Submit">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Text id="actiontarget" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <Label fx:id="status1" text="" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Add/Edit Members">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                        <GridPane alignment="center" hgap="10" layoutX="48.0" layoutY="14.0" prefHeight="585.0" prefWidth="384.0" vgap="30">
+                           <padding>
+                              <Insets bottom="10" left="25" right="25" top="25" />
+                           </padding>
+                           <children>
+                              <Text id="welcome-text" text="New Member Form" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Text>
+                              <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="first_name" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="Last Name:" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="last_name" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                              <Label text="Street:" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="street" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <Label text="City:" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="city" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <Label text="State:" GridPane.columnIndex="0" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="state" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <Label text="Zip:" GridPane.columnIndex="0" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="zip" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <Label text="Phone number:" GridPane.columnIndex="0" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="phone_number" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                              <HBox alignment="bottom_right" spacing="10" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                                 <children>
+                                    <Button id="button" onAction="#addMember" text="Submit">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <Text id="actiontarget" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                              <Label fx:id="status" text="" GridPane.columnIndex="0" GridPane.rowIndex="10" />
+                           </children>
+                           <columnConstraints>
+                              <ColumnConstraints />
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints>
+                        </GridPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>

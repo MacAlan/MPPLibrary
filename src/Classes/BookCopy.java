@@ -3,20 +3,26 @@ package Classes;
 import java.util.*;
 public class BookCopy {
     private final Books book;
-    private final String copyNumber;
+    private final int copyNumber;     
+    private final int count;   
 
 
-
-    public BookCopy(Books book, String copyNumber) {
+    public BookCopy(Books book, int copyNumber, int count) {
         this.book = book;
         this.copyNumber = copyNumber;
-
+        this.count = count;
     }
 
-    public BookCopy(String title, String ISBN, boolean availability, int days,Autor autors, String copyNumber) {
+    public BookCopy(String title, String ISBN, boolean availability, int days,List<Autor> autors, int copyNumber, int count) {
         this.book = new Books(title, ISBN, availability, days, autors);
         this.copyNumber = copyNumber;
+        this.count = count;
+    }
 
+    public BookCopy(String title, String ISBN, boolean availability, int days,Autor autor, int copyNumber, int count) {
+        this.book = new Books(title, ISBN, availability, days, autor);
+        this.copyNumber = copyNumber;
+        this.count = count;
     }
 
 
@@ -25,9 +31,14 @@ public class BookCopy {
     }
 
 
-    public String getCopyNumber() {
+    public int getCopyNumber() {
         return this.copyNumber;
     }
 
+
+
+    public int getCount() {
+        return this.count;
+    }
 
 }

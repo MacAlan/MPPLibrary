@@ -10,6 +10,12 @@ class Person
 
     public Person() {
     }
+    public Person(long id, String firstname, String lastname, String phone) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.phone = phone;
+    }
 
     public Person(long id, String firstname, String lastname, String phone, Address address) {
         this.id = id;
@@ -17,14 +23,6 @@ class Person
         this.lastname = lastname;
         this.phone = phone;
         this.address = address;
-    }
-
-    public Person(long id, String firstname, String lastname, String phone) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.phone = phone;
-
     }
 
     public Person(long id, String firstname, String lastname, String phone, String street, String city, String state, String zip) {
